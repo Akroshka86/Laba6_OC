@@ -1,0 +1,24 @@
+- name: Ansible installer
+  hosts: all
+  become: yes
+  tasks: 
+   - name: Nginx installer
+     apt:
+       name: nginx
+       state: latest
+
+   - name: PHP installer
+     apt:
+       name: php
+       state: latest
+ 
+   - name: PHP-Cli installer
+     apt:
+       name: php-cli
+       state: latest
+
+   - name: Running nginx when the OS starts
+     service:
+       name: nginx
+       enabled: yes
+       state: started
